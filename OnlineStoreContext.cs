@@ -11,10 +11,7 @@ public partial class OnlineStoreContext : DbContext
     public OnlineStoreContext(string Connect) { _connectionString = Connect; }
     public OnlineStoreContext() { }
 
-    public OnlineStoreContext(DbContextOptions<OnlineStoreContext> options)
-        : base(options)
-    {
-    }
+    public OnlineStoreContext(DbContextOptions<OnlineStoreContext> options) : base(options) { }
 
     public virtual DbSet<Product> Products { get; set; }
 

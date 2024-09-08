@@ -6,15 +6,79 @@ using System.Xml.Linq;
 
 namespace OnlineStore
 {
-    public static class DataTransmission
+    interface IXmlDocument
     {
-        private static List<Purchase> _orders = new List<Purchase>();
-        private static List<Product> _products = new List<Product>();
-        private static List<User> _users = new List<User>();
-        private static List<Purchaseproduct> _purchaseproducts = new List<Purchaseproduct>();
-        public static void XMLToDBXmlReader()
+        void ParseXmlDocument(DataTransmission dataTransmission, XDocument xdoc);
+    }
+    interface IXmlReader
+    {
+        void ParseXmlReader(DataTransmission dataTransmission, string pathXml);
+    }
+    interface IWriteBD
+    {
+        void BDWrite(DataTransmission dataTransmission, string connect);
+    }
+    interface IClear
+    {
+        void Clear(DataTransmission dataTransmission);
+    }
+    class DataTransmission
+    {
+        internal List<Purchase> _orders = new List<Purchase>();
+        internal List<Product> _products = new List<Product>();
+        internal List<User> _users = new List<User>();
+        internal List<Purchaseproduct> _purchaseproducts = new List<Purchaseproduct>();
+
+        private readonly IXmlReader? _xmlReader = null;
+        private readonly IXmlDocument? _xmlDocument = null;
+        private readonly IWriteBD _writeBD;
+        private readonly IClear _clearing;
+        public DataTransmission(IXmlDocument xmlDocument, IWriteBD writeBD, IClear clear)
         {
-            using (XmlReader reader = XmlReader.Create("XMLFiles\\DATA.xml"))
+            _xmlDocument = xmlDocument;
+            _writeBD = writeBD;
+            _clearing = clear;
+        }
+        public DataTransmission(IXmlReader xmlReader, IWriteBD writeBD, IClear clear)
+        {
+            _xmlReader = xmlReader;
+            _writeBD = writeBD;
+            _clearing = clear;
+        }
+        public void ParseXmlToStoreData(DataTransmission dataTransmission, string connect, string pathXml)
+        {
+            if (dataTransmission._xmlReader is null)
+            {
+                XDocument xdoc = XDocument.Load(pathXml);
+                _xmlDocument?.ParseXmlDocument(dataTransmission, xdoc);
+            }
+            else
+                _xmlReader?.ParseXmlReader(dataTransmission, pathXml);
+            SaveDataToDatabase(dataTransmission, connect);
+        }
+        private void SaveDataToDatabase(DataTransmission dataTransmission, string connect)
+        {
+            try { _writeBD.BDWrite(dataTransmission, connect); }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"ошибка подключения: {ex.Message}");
+                Console.WriteLine(ex.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unknown error");
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine();
+                Console.WriteLine(ex.ToString());
+            }
+            finally { _clearing.Clear(dataTransmission); }
+        }
+    }
+    class XMLReader : IXmlReader
+    {
+        public void ParseXmlReader(DataTransmission dataTransmission, string pathXml)
+        {
+            using (XmlReader reader = XmlReader.Create(pathXml))
             {
                 if (!reader.ReadToFollowing("orders"))
                 {
@@ -36,7 +100,7 @@ namespace OnlineStore
                         if (reader.Name == "order")
                         {
                             order = new Purchase();
-                            _orders.Add(order);
+                            dataTransmission._orders.Add(order);
                         }
                         else if (reader.Name == "product")
                         {
@@ -46,13 +110,13 @@ namespace OnlineStore
                             purchaseproduct.Purchase = order;
                             purchaseproduct.Purchaseid = order.Id;
                             //purchaseproduct.Productid = product.Id;
-                            _products.Add(product);
-                            _purchaseproducts.Add(purchaseproduct);
+                            dataTransmission._products.Add(product);
+                            dataTransmission._purchaseproducts.Add(purchaseproduct);
                         }
                         else if (reader.Name == "user")
                         {
                             user = new User();
-                            _users.Add(user);
+                            dataTransmission._users.Add(user);
                             //order_element.Usersid = user.Id;
                             order.Users = user;
                             user.Purchases.Add(order);
@@ -60,21 +124,21 @@ namespace OnlineStore
                     }
                     else if (reader.NodeType == XmlNodeType.Text)
                     {
-                        if (element == "no")
-                            order.Id = int.Parse(reader.Value);
-                        else if (element == "reg_date")
-                            order.Orderdate = DateOnly.Parse(reader.Value);
-                        else if (element == "sum")
-                            order.Price = decimal.Parse(reader.Value, CultureInfo.InvariantCulture);
-                        else if (element == "quantity")
+                        if (element == "no" && int.TryParse(reader.Value, out int no))
+                            order.Id = no;
+                        else if (element == "reg_date" && DateOnly.TryParse(reader.Value, out DateOnly reg_date))
+                            order.Orderdate = reg_date;
+                        else if (element == "sum" && decimal.TryParse(reader.Value, CultureInfo.InvariantCulture, out decimal sum))
+                            order.Price = sum;
+                        else if (element == "quantity" && int.TryParse(reader.Value, out int quantity))
                         {
-                            purchaseproduct.Quantityproduct = int.Parse(reader.Value);
-                            product.Productcount = purchaseproduct.Quantityproduct;
+                            purchaseproduct.Quantityproduct = quantity;
+                            product.Productcount = quantity;
                         }
                         else if (element == "name")
                             product.Productname = reader.Value;
-                        else if (element == "price")
-                            product.Price = decimal.Parse(reader.Value, CultureInfo.InvariantCulture);
+                        else if (element == "price" && decimal.TryParse(reader.Value, CultureInfo.InvariantCulture, out decimal price))
+                            product.Price = price;
                         else if (element == "fio")
                         {
                             string[] subs = reader.Value.Split(null, 2);
@@ -86,101 +150,126 @@ namespace OnlineStore
                     }
                 }
             }
-            BDAdd();
         }
-        public static void XMLToDBXDocument()
+    }
+    class XMLXDocument : IXmlDocument
+    {
+        public void ParseXmlDocument(DataTransmission dataTransmission, XDocument xdoc)
         {
-            XDocument xdoc = XDocument.Load("XMLFiles\\DATA.xml");
-
             XElement? orders = xdoc.Element("orders");
+
             if (orders is not null)
             {
                 Purchase order;
                 Product product;
                 User user;
                 Purchaseproduct purchaseproduct;
+
                 foreach (XElement order_element in orders.Elements("order"))
                 {
-                    order = new Purchase(int.Parse(order_element.Element("no").Value), 
-                        DateOnly.Parse(order_element.Element("reg_date").Value), 
-                        decimal.Parse(order_element.Element("sum").Value, CultureInfo.InvariantCulture));
-                    order_element.Element("user");
-
-                    foreach (XElement product_element in order_element.Elements("product"))
+                    if (int.TryParse(order_element.Element("no")?.Value, out int no) && DateOnly.TryParse(order_element.Element("reg_date")?.Value, out DateOnly reg_date) && decimal.TryParse(order_element.Element("sum")?.Value, CultureInfo.InvariantCulture, out decimal sum))
                     {
-                        product = new Product(product_element.Element("name").Value, 
-                            int.Parse(product_element.Element("quantity").Value), 
-                            decimal.Parse(product_element.Element("price").Value, CultureInfo.InvariantCulture));
+                        order = new Purchase(no, reg_date, sum);
+                        dataTransmission._orders.Add(order);
 
-                        purchaseproduct = new Purchaseproduct(int.Parse(product_element.Element("quantity").Value),
-                            product, 
-                            order);
+                        foreach (XElement product_element in order_element.Elements("product"))
+                        {
+                            if (product_element.Element("name") is not null && int.TryParse(order_element.Element("quantity")?.Value, out int quantity) && decimal.TryParse(order_element.Element("price")?.Value, CultureInfo.InvariantCulture, out decimal price))
+                            {
+                                product = new Product(product_element.Element("name").Value, quantity, price);
+                                purchaseproduct = new Purchaseproduct(quantity, product, order);
 
-                        product.Purchaseproducts.Add(purchaseproduct);
-                        order.Purchaseproducts.Add(purchaseproduct);
+                                product.Purchaseproducts.Add(purchaseproduct);
+                                order.Purchaseproducts.Add(purchaseproduct);
 
-                        _products.Add(product);
-                        _purchaseproducts.Add(purchaseproduct);
+                                dataTransmission._products.Add(product);
+                                dataTransmission._purchaseproducts.Add(purchaseproduct);
+                            }
+                            else
+                                Console.WriteLine("Неполные данные");
+                        }
+
+                        XElement? fio = order_element.Element("user")?.Element("fio");
+                        if (fio is not null)
+                        {
+                            string[] subs = fio.Value.Split(null, 2);
+                            user = new User(subs[0], subs[1], fio.Element("email")?.Value, [order]);
+                            order.Users = user;
+                            dataTransmission._users.Add(user);
+                        }
+                        else
+                            Console.WriteLine("Неполные данные");
                     }
-
-                    string[] subs = order_element.Element("user").Element("fio").Value.Split(null, 2);
-                    user = new User(subs[0], subs[1], order_element.Element("user").Element("email").Value, [order]);
-                    order.Users = user;
-                    _users.Add(user);
-                    _orders.Add(order);
+                    else
+                        Console.WriteLine("Неполные данные");
                 }
-                BDAdd();
             }
         }
-        private static void BDAdd()
+    }
+    class BDSave : IWriteBD
+    {
+        public void BDWrite(DataTransmission dataTransmission, string connect)
         {
-            Console.WriteLine("Введите строку для подключения к базе данных в формате:\n \"Host=localhost;Port=NumberPort;Database=DatabaseName;Username=postgres;Password=password");
-            string connect = Console.ReadLine();
+            using var onlineStoreContext = new OnlineStoreContext(connect);
+            using var transaction = onlineStoreContext.Database.BeginTransaction();
             try
             {
-                using (OnlineStoreContext onlineStoreContext = new OnlineStoreContext(connect))
-                {
-                    if (_orders.Count > 0)
-                        foreach (Purchase order in _orders)
-                            onlineStoreContext.Purchases.Add(order);
-                    if (_products.Count > 0)
-                        foreach (Product product in _products)
-                            onlineStoreContext.Products.Add(product);
-                    if (_users.Count > 0)
-                        foreach (User user in _users)
-                            onlineStoreContext.Users.Add(user);
-                    if (_purchaseproducts.Count > 0)
-                        foreach (Purchaseproduct product in _purchaseproducts)
-                            onlineStoreContext.Purchaseproducts.Add(product);
-                    onlineStoreContext.SaveChanges();
-                }
+                SaveDataToDatabase(dataTransmission, onlineStoreContext);
+                transaction.Commit();
             }
             catch (DbUpdateException ex)
             {
-                Console.WriteLine(ex.ToString());
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine($"ошибка подключения: {ex.Message}");
+                transaction.Rollback();
+                Console.WriteLine($"Ошибка при записи данных: {ex.Message}");
                 Console.WriteLine(ex.ToString());
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Unknown error");
-                Console.WriteLine($"Исключение: {ex.Message}");
-                Console.WriteLine($"Метод: {ex.TargetSite}");
-                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
-                Console.WriteLine();
-                Console.WriteLine(ex.ToString());
+                transaction.Rollback();
+                throw ex;
             }
-            finally
-            {
-                _orders.Clear();
-                _products.Clear();
-                _users.Clear();
-                _purchaseproducts.Clear();
-            }
-
+        }
+        private static void SaveDataToDatabase(DataTransmission dataTransmission, OnlineStoreContext onlineStoreContext)
+        {
+            SaveOrders(dataTransmission, onlineStoreContext);
+            SaveProducts(dataTransmission, onlineStoreContext);
+            SaveUsers(dataTransmission, onlineStoreContext);
+            SavePurchaseProducts(dataTransmission, onlineStoreContext);
+            onlineStoreContext.SaveChanges();
+        }
+        private static void SavePurchaseProducts(DataTransmission dataTransmission, OnlineStoreContext onlineStoreContext)
+        {
+            if (dataTransmission._purchaseproducts.Count > 0)
+                foreach (Purchaseproduct product in dataTransmission._purchaseproducts)
+                    onlineStoreContext.Purchaseproducts.Add(product);
+        }
+        private static void SaveUsers(DataTransmission dataTransmission, OnlineStoreContext onlineStoreContext)
+        {
+            if (dataTransmission._users.Count > 0)
+                foreach (User user in dataTransmission._users)
+                    onlineStoreContext.Users.Add(user);
+        }
+        private static void SaveProducts(DataTransmission dataTransmission, OnlineStoreContext onlineStoreContext)
+        {
+            if (dataTransmission._products.Count > 0)
+                foreach (Product product in dataTransmission._products)
+                    onlineStoreContext.Products.Add(product);
+        }
+        private static void SaveOrders(DataTransmission dataTransmission, OnlineStoreContext onlineStoreContext)
+        {
+            if (dataTransmission._orders.Count > 0)
+                foreach (Purchase order in dataTransmission._orders)
+                    onlineStoreContext.Purchases.Add(order);
+        }
+    }
+    class DataClear : IClear
+    {
+        public void Clear(DataTransmission dataTransmission)
+        {
+            dataTransmission._orders.Clear();
+            dataTransmission._products.Clear();
+            dataTransmission._users.Clear();
+            dataTransmission._purchaseproducts.Clear();
         }
     }
 }

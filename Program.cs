@@ -3,13 +3,16 @@ using OnlineStore;
 using System.Xml;
 using System.Xml.Linq;
 
+Console.WriteLine("Введите строку для подключения к базе данных в формате:\n Host=localhost;Port=NumberPort;Database=DatabaseName;Username=postgres;Password=password");
 
-DataTransmission.XMLToDBXDocument();
+string pathXML = "XMLFiles\\DATA.xml";
+string connect = Console.ReadLine();
 
+IXmlDocument xmlDocument = new XMLXDocument();
+IXmlReader xmlReader = new XMLReader();
+IWriteBD writeBD = new BDSave();
+IClear clearing = new DataClear();
 
-//XDocument xdoc = XDocument.Load("XMLFiles\\DATA.xml");
-//XElement? _orders = xdoc.Element("_orders"); // получаем корневой узел
+DataTransmission dataTransmission = new(xmlDocument, writeBD, clearing);
 
-//Console.WriteLine(xDoc.Name);
-//Console.WriteLine(xdoc.ToString());
 Console.WriteLine();

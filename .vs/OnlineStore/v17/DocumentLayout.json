@@ -7,28 +7,20 @@
       "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:datatransmission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\onlinestorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:onlinestorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\models\\purchaseproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:models\\purchaseproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\messagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:messagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\bin\\Debug\\net8.0\\XMLFiles\\DATA.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:bin\\Debug\\net8.0\\XMLFiles\\DATA.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|c:\\users\\svyatoslav\\desktop\\\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\onlinestore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A470E9D7-97B0-451A-A87A-DACD77E1A69B}|OnlineStore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageManager.cs",
+              "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\MessageManager.cs",
+              "RelativeDocumentMoniker": "MessageManager.cs",
+              "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\MessageManager.cs",
+              "RelativeToolTip": "MessageManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T11:26:50.231Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,109 +53,48 @@
               "RelativeDocumentMoniker": "DataTransmission.cs",
               "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\DataTransmission.cs",
               "RelativeToolTip": "DataTransmission.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAmwBMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T17:15:29.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Purchase.cs",
-              "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Models\\Purchase.cs",
-              "RelativeDocumentMoniker": "Models\\Purchase.cs",
-              "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Models\\Purchase.cs",
-              "RelativeToolTip": "Models\\Purchase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T06:44:11.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Purchaseproduct.cs",
-              "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Models\\Purchaseproduct.cs",
-              "RelativeDocumentMoniker": "Models\\Purchaseproduct.cs",
-              "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Models\\Purchaseproduct.cs",
-              "RelativeToolTip": "Models\\Purchaseproduct.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T06:44:10.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Models\\Product.cs",
-              "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Models\\Product.cs",
-              "RelativeToolTip": "Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T06:41:51.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "OnlineStoreContext.cs",
               "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\OnlineStoreContext.cs",
               "RelativeDocumentMoniker": "OnlineStoreContext.cs",
               "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\OnlineStoreContext.cs",
               "RelativeToolTip": "OnlineStoreContext.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T19:00:32.36Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-21T10:00:02.403Z",
               "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "79f6ba13-cbd0-494b-8b7c-afb8d97b7e4e",
-        "Display": 1,
-        "X": -5,
-        "Y": 320,
-        "Width": 1457,
-        "Height": 581,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "DATA.xml",
               "DocumentMoniker": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\bin\\Debug\\net8.0\\XMLFiles\\DATA.xml",
               "RelativeDocumentMoniker": "bin\\Debug\\net8.0\\XMLFiles\\DATA.xml",
               "ToolTip": "C:\\Users\\svyatoslav\\Desktop\\\u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B\\OnlineStore\\bin\\Debug\\net8.0\\XMLFiles\\DATA.xml",
               "RelativeToolTip": "bin\\Debug\\net8.0\\XMLFiles\\DATA.xml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2024-08-22T18:39:48.339Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-22T18:39:48.339Z"
             }
           ]
         }

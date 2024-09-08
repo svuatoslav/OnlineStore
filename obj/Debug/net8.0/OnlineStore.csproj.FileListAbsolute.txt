@@ -121,3 +121,4 @@ C:\Users\svyatoslav\Desktop\Приложения для работы\OnlineStore
 C:\Users\svyatoslav\Desktop\Приложения для работы\OnlineStore\obj\Debug\net8.0\OnlineStore.pdb
 C:\Users\svyatoslav\Desktop\Приложения для работы\OnlineStore\obj\Debug\net8.0\OnlineStore.genruntimeconfig.cache
 C:\Users\svyatoslav\Desktop\Приложения для работы\OnlineStore\obj\Debug\net8.0\ref\OnlineStore.dll
+C:\Users\svyatoslav\Desktop\Приложения для работы\OnlineStore\obj\Debug\net8.0\OnlineStore.sourcelink.json
