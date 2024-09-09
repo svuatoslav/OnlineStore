@@ -174,7 +174,7 @@ namespace OnlineStore
 
                         foreach (XElement product_element in order_element.Elements("product"))
                         {
-                            if (product_element.Element("name") is not null && int.TryParse(order_element.Element("quantity")?.Value, out int quantity) && decimal.TryParse(order_element.Element("price")?.Value, CultureInfo.InvariantCulture, out decimal price))
+                            if (product_element.Element("name") is not null && int.TryParse(product_element.Element("quantity")?.Value, out int quantity) && decimal.TryParse(product_element.Element("price")?.Value, CultureInfo.InvariantCulture, out decimal price))
                             {
                                 product = new Product(product_element.Element("name").Value, quantity, price);
                                 purchaseproduct = new Purchaseproduct(quantity, product, order);

@@ -14,5 +14,6 @@ IWriteBD writeBD = new BDSave();
 IClear clearing = new DataClear();
 
 DataTransmission dataTransmission = new(xmlDocument, writeBD, clearing);
+dataTransmission.ParseXmlToStoreData(dataTransmission, connect, pathXML);
 
 Console.WriteLine();
