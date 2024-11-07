@@ -7,9 +7,8 @@ namespace OnlineStore;
 
 public partial class OnlineStoreContext : DbContext
 {
-    private string _connectionString;
+    private string _connectionString = null!;
     public OnlineStoreContext(string Connect) { _connectionString = Connect; }
-    public OnlineStoreContext() { }
 
     public OnlineStoreContext(DbContextOptions<OnlineStoreContext> options) : base(options) { }
 
@@ -28,7 +27,6 @@ public partial class OnlineStoreContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseNpgsql(_connectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
